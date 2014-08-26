@@ -1,0 +1,85 @@
+// Ratio List
+@golden           : 1.618;
+@minor-second     : 1.067;
+@major-second     : 1.125;
+@minor-third      : 1.2;
+@major-third      : 1.25;
+@perfect-fourth   : 1.333;
+@augmented-fourth : 1.414;
+@perfect-fifth    : 1.5;
+@minor-sixth      : 1.6;
+@major-sixth      : 1.667;
+@minor-seventh    : 1.778;
+@major-seventh    : 1.875;
+@octave           : 2;
+@major-tenth      : 2.5;
+@major-eleventh   : 2.667;
+@major-twelfth    : 3;
+@double-octave    : 4;
+
+@modular-scale-sizes : 14, 44;
+@modular-scale-ratio : @golden;
+@modular-scale-unit  : px;
+
+
+/**
+ * Modular Scale
+ * @param  @pos    {Number} Position in the scale 
+ * @param  @sizes  {List/Number} List of two number (for double Stranded) or a single one
+ * @param  @ratio  {Number} Ratio
+ * @param  @unit   {String/Number} Result's unit
+ *
+ * @return @modular-scale-return {String/Integer/Float} Size at postion @pos
+ */
+.modular-scale(@pos   : 0;
+               @sizes : @modular-scale-sizes;
+               @ratio : @modular-scale-ratio;
+               @unit  : @modular-scale-unit) {
+
+  @modular-scale-return: unit(`
+    (function ms(numbers, pos, ratio, unit) {
+      var v1 = +numbers[0] || +numbers;
+      var v2 = +numbers[1] || v1;
+      var value = v1;
+      var i;
+      var doubleStranded;
+
+      if (pos === 0) return value;
+
+      while (v2 > v1) v2 /= ratio;
+      while (v2 < v1) v2 *= ratio;
+
+      doubleStranded = v2 > v1;
+
+      if (pos > 0) {
+        i = 1;
+        while (i <= pos) {
+          if (doubleStranded && (v1 * ratio > v2)) {
+            value = v2;
+            v2 *= ratio;
+          } else {
+            v1 *= ratio;
+            value = v1;
+          }
+          i++;
+        }
+      } else {
+        i = -1;
+        v2 = v2 / ratio;
+        while (i >= pos) {
+          if (doubleStranded && (v1 / ratio < v2)) {
+            value = v2;
+            v2 /= ratio;
+          } else {
+            v1 /= ratio;
+            value = v1;
+          }
+          i--;
+        }
+      }
+
+      return value;
+    })(@{sizes}, @{pos}, @{ratio})
+  `, @unit);
+
+}

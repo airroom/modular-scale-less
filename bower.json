@@ -1,0 +1,25 @@
+{
+  "name": "modular-scale-less",
+  "version": "0.1.0",
+  "homepage": "https://github.com/airRoom/modular-scale-less",
+  "description": "Modular Scale for Less",
+  "main": "modular-scale.less",
+  "keywords": [
+    "modular",
+    "scale",
+    "typography",
+    "golden",
+    "ratio"
+  ],
+  "authors": [
+    "Romario S. Lima <romario@airroom.com.br>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
