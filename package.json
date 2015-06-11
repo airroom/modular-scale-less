@@ -1,0 +1,22 @@
+{
+  "name": "modular-scale-less",
+  "version": "0.1.1",
+  "description": "Modular Scale for Less",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airroom/modular-scale-less.git"
+  },
+  "keywords": [
+    "modular",
+    "scale",
+    "typography",
+    "golden",
+    "ratio"
+  ],
+  "author": "Romário S. Lima <romario@airroom.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/airroom/modular-scale-less/issues"
+  },
+  "homepage": "https://github.com/airroom/modular-scale-less"
+}

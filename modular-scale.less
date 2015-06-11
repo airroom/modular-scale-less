@@ -37,7 +37,7 @@
                @unit  : @modular-scale-unit) {
 
   @modular-scale-return: unit(`
-    (function ms(numbers, pos, ratio, unit) {
+    (function ms(numbers, pos, ratio) {
       var v1 = +numbers[0] || +numbers;
       var v2 = +numbers[1] || v1;
       var value = v1;
@@ -81,5 +81,4 @@
       return value;
     })(@{sizes}, @{pos}, @{ratio})
   `, @unit);
-
 }
