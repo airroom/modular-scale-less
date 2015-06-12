@@ -3,6 +3,15 @@ Modular Scale for Less
 
 Modular Scale for Less. Ported from [Bourbon Sass](https://github.com/thoughtbot/bourbon "Bourbon Sass").
 
+Installation
+------------
+
+```sh
+npm install modular-scale-less
+# or...
+bower install modular-scale-less
+```
+
 Usage
 -----
 
